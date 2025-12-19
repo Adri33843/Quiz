@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Quiz secreto</title>
+<style>
+body {
+  background:#111;
+  color:#fff;
+  font-family:Arial;
+  padding:20px;
+}
+button {
+  padding:10px;
+  margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+<h2>🔐 Quiz de acceso</h2>
+
+<p>1) ¿Quién es el ex de Lucy?</p>
+<input type="radio" name="q1" value="a"> Facundo Cappetto<br>
+<input type="radio" name="q1" value="b"> Adriel Cassoli<br>
+
+<p>2) ¿Quién toca en Troppel?</p>
+<input type="radio" name="q2" value="a"> Facundo Cappetto<br>
+<input type="radio" name="q2" value="b"> Oso Maduro<br>
+
+<p>3) ¿Quién aparece en la foto de la cena?</p>
+<input type="radio" name="q3" value="a"> Homero Simpson realista<br>
+<input type="radio" name="q3" value="b"> La grasita<br>
+
+<p>4) ¿Quién tiene más volumen en los pechos?</p>
+<input type="radio" name="q4" value="a"> Lucy<br>
+<input type="radio" name="q4" value="b"> La mogoliquita<br>
+
+<p>5) ¿Quién fuma más?</p>
+<input type="radio" name="q5" value="a"> Wiz Khalifa<br>
+<input type="radio" name="q5" value="b"> Virginia Arienti<br>
+
+<br>
+<button onclick="verificar()">Verificar</button>
+<p id="resultado"></p>
+
+<script>
+function verificar() {
+  const ok = {q1:"a",q2:"a",q3:"a",q4:"b",q5:"b"};
+  for (let q in ok) {
+    let r = document.querySelector(`input[name="${q}"]:checked`);
+    if (!r || r.value !== ok[q]) {
+      document.getElementById("resultado").innerHTML = "❌ Alguna respuesta es incorrecta";
+      return;
+    }
+  }
+  document.getElementById("resultado").innerHTML = "✅ Contraseña: <b>qkwertygj</b>";
+}
+</script>
+
+</body>
+</html>
